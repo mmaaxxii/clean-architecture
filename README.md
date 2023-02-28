@@ -1,14 +1,16 @@
 # Clean Architecture
 
 
-## Features needed 
+## Features needed in terminal
 
 ```
-"npm i -g pnpm"
+npm i -g pnpm
 
-"pnpm i"
+pnpm i
 
-"pnpm install react-redux"
+pnpm i react-redux
+
+pnpm i @reduxjs/toolkit
 
 ```
 
