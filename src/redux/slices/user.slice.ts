@@ -1,6 +1,8 @@
+import { UserEmptyState , User } from '@/models';
 
 import { createSlice } from '@reduxjs/toolkit';
-import { User, UserEmptyState } from '@/models';
+
+
 
 interface Action {
     payload: User;

@@ -12,5 +12,7 @@ pnpm i react-redux
 
 pnpm i @reduxjs/toolkit
 
+pnpm i @types/node
+
 ```
 
