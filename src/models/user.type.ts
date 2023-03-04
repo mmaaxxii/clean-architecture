@@ -8,3 +8,13 @@ export const UserEmptyState: User = {
     name: ''
 };
 
+export interface ApiUser {
+    codigo: string 
+    nombre: string
+}
+
+export const ApiUserEmptyState: ApiUser = {
+    codigo: '',
+    nombre: ''
+};
+

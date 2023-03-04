@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux'
 import './App.css'
 import { Home } from './pages/home'
-import store from './redux/store'
 import { AppStore } from './redux/store'
 
 
