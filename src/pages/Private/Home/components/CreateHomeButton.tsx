@@ -1,6 +1,6 @@
 import { createUser } from "@/redux/slices/user.slice"
 import { useDispatch } from "react-redux"
-import { serviceTemplate } from "../services/service-Template"
+import { serviceTemplate } from "../services"
 
 export default function ModifyHomeButton() {
     const dispatch = useDispatch()

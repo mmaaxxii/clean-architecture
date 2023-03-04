@@ -9,5 +9,3 @@ export const serviceTemplateAdapter = (user: ApiUser): User => {
         //id, 
     };
 };
-
-

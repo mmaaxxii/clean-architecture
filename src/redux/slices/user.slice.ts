@@ -16,7 +16,6 @@ export const userSlide = createSlice({
             return action.payload;
         },
         modifyUser: ( state, action) => {
-
             return {...state, ...action.payload} 
         },
         resetUser: () => {

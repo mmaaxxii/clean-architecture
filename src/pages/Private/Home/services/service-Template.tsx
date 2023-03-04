@@ -8,6 +8,4 @@ export const serviceTemplate = async (url: string) => {
     .then((res) => res.json())
     .then((res) => serviceTemplateAdapter(res));
 };
-
 //Agregar axios
-
