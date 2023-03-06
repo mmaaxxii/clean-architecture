@@ -1,4 +1,3 @@
-import { ReactElement } from "react"
 import { Route, Routes } from "react-router-dom"
 
 interface Props {

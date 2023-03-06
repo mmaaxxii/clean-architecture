@@ -1,27 +1,36 @@
-import { useSelector } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
 import './App.css'
-import { Login, Home, Private } from './pages'
-import { AppStore } from './redux/store'
+import store, { AppStore } from './redux/store'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { PrivateRoutes, PublicRoutes } from './models'
-import {AuthGuard} from './guards'
+import { PrivateRoutes, PublicRoutes, Roles } from './models'
+import { AuthGuard, RoleGuard } from './guards'
 import { RoutesWithNotFound } from './utilities'
-
+import { lazy, Suspense } from 'react'
+import { Logout } from './components/Logout'
+const Login = lazy(() => import('./pages/Login/Login'))
+const Private = lazy(() => import('./pages/Private/Private'))
+import Dashboard from './pages/Private/Dashboard/Dashboard';
 
 function App() {
-  const user = useSelector((state: AppStore) => state.user)
   return (
     <div className='App'>
-      <BrowserRouter>
-        <RoutesWithNotFound>
-          <Route path='/' element={<Navigate to ={PrivateRoutes.PRIVATE} />} />
-          <Route path='*' element={<>NOT FOUND</>} />
-          <Route path={PublicRoutes.LOGIN} element={<Login />} />
-          <Route element= {<AuthGuard/>}>
-            <Route path={`${PrivateRoutes.PRIVATE}/*`} element={<Private />} />
-          </Route>
-        </RoutesWithNotFound>
-      </BrowserRouter>
+      <Suspense fallback={<>Loading</>}>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Logout/>
+            <RoutesWithNotFound>
+              <Route path='/' element={<Navigate to={PrivateRoutes.PRIVATE} />} />
+              <Route path={PublicRoutes.LOGIN} element={<Login />} />
+              <Route element={<AuthGuard privateValidation={true} />}>
+                <Route path={`${PrivateRoutes.PRIVATE}/*`} element={<Private />} />
+              </Route>
+              <Route element={<RoleGuard role={Roles.ADMIN} /> } >
+                <Route path={`${PrivateRoutes.DASHBOARD}/*`} element={<Dashboard />} />
+              </Route>
+            </RoutesWithNotFound>
+          </BrowserRouter>
+        </Provider>
+      </Suspense>
     </div>
   )
 }
