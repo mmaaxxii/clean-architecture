@@ -13,11 +13,11 @@ export const userSlide = createSlice({
     name: 'user',
     initialState: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') as string ) : UserEmptyState,
     reducers: {
-        createUser: (state, action) => {
+        createUser: (state, action: Action) => {
             persistLocalStorage<User>(keyUser, action.payload);
             return action.payload;
         },
-        modifyUser: ( state, action) => {
+        modifyUser: ( state, action: Action) => {
             const result = {...state, ...action.payload};
             persistLocalStorage<User>(keyUser, result);
             return result 
