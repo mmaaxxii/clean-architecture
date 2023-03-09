@@ -37,6 +37,11 @@ export interface ApiUser {
       
 }
 
+const ApiUserEmptyStateOrigin = {
+  name: "",
+  url: ""
+}
+
 export const ApiUserEmptyState: ApiUser = {
     id: 2,
     name: "",
@@ -44,14 +49,8 @@ export const ApiUserEmptyState: ApiUser = {
     species: "",
     type: "",
     gender: "",
-    origin: {
-      name: "",
-      url: ""
-    },
-    location: {
-      name: "",
-      url: ""
-    },
+    origin: ApiUserEmptyStateOrigin,
+    location: ApiUserEmptyStateOrigin,
     image: "",
     episode: [],
     url: "",

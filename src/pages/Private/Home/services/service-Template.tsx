@@ -1,7 +1,7 @@
 import { serviceTemplateAdapter } from "../adapters";
 import axios from "axios";
-import { ApiUser } from "@/models";
-import { User } from '@/models/user.type';
+import { ApiUser , User} from "@/models";
+
 
 
 export const url = "https://Rickandmortyapi.com/api/character/2";
@@ -12,4 +12,3 @@ export const serviceTemplate =  (url: string) :Promise<User> => {
     .then((res) => serviceTemplateAdapter(res));
     
 };
-//Agregar axios

@@ -15,5 +15,8 @@ pnpm i @reduxjs/toolkit
 pnpm i @types/node
 
 pnpm i @types/react-router-dom
+
+pnpm i notistack
 ```
+
 
